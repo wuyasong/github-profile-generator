@@ -1,0 +1,30 @@
+---
+import { languages } from "@/i18n/ui"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import DarkToggle from "@/components/DarkToggle.astro"
+import LocaleSwitch from "@/components/LocaleSwitch.astro"
+
+const lang = getLangFromUrl(Astro.url)
+// const t = useTranslations(lang)
+---
+
+<header class="py-10">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav class="relative z-50 flex justify-between">
+      <!-- left -->
+      <div class="flex items-center md:gap-x-12">
+        <!-- logo -->
+        <a href="/" class="font-bold">
+          <span style="color: #0F172A;">GitHub</span><span style="color: #2563EB;">Profile</span><span style="color: #0F172A;">Generate</span>
+        </a>
+        <div class="hidden md:flex md:gap-x-6"></div>
+      </div>
+
+      <!-- right -->
+      <div class="flex items-center gap-x-5 md:gap-x-8">
+        <DarkToggle />
+        <LocaleSwitch />
+      </div>
+    </nav>
+  </div>
+</header>

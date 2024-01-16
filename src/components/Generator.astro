@@ -1,0 +1,136 @@
+---
+// import GeneratorLayout from '@/components/GeneratorLayout.astro'
+import AddonsForm from "./AddonsForm.astro"
+import PostsForm from "./PostsForm.astro"
+import ProfileForm from "./ProfileForm.astro"
+import SkillsForm from "./SkillsForm.astro"
+import SocialForm from "./SocialForm.astro"
+import "@/styles/github-markdown.css"
+import Support from "./Support.astro"
+// import defaultTemplate from "@/templates/default.astro"
+
+const generators = [
+    {
+        title: 'Profile',
+        subTitle: 'Some public information about you',
+        type: 'profile',
+        form: {}
+    },
+    {
+        title: 'Skills',
+        subTitle: 'Showcase your skills',
+        type: 'skills',
+        form: {}
+    },
+    {
+        title: 'Posts',
+        subTitle: 'Show some recent posts',
+        type: 'posts',
+        form: []
+    },
+    {
+        title: 'Social Links',
+        subTitle: 'Add some social media links',
+        type: 'social',
+        form: {}
+    },
+    {
+        title: 'Add-ons',
+        subTitle: '',
+        type: 'addons',
+        form: {}
+    },
+    {
+        title: 'Supports',
+        subTitle: '',
+        type: 'supports',
+        form: {}
+    }
+]
+---
+
+<!-- Generator Form -->
+<github-profile-generator id="generator-form">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-8 mt-20 bg-slate-100">
+        {
+            generators.map(generator => <>
+                <div class="md:grid md:grid-cols-3 md:gap-6">
+                    {/* left Title */}
+                    <div class="md:col-span-1">
+                        <div class="px-4 sm:px-0 sticky top-0">
+                            <h3 class="text-lg font-medium leading-6 text-gray-900">{generator.title}</h3>
+                            <p class="mt-1 text-sm text-gray-600">{generator.subTitle}</p>
+                        </div>
+                    </div>
+                    {/* right Form */}
+                    <div class="mt-5 md:col-span-2 md:mt-0 relative">
+                        <div class="shadow sm:overflow-hidden sm:rounded-md">
+                            <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
+                                {generator.type === 'profile' && <ProfileForm profile={generator.form} />}
+                                {generator.type === 'skills' && <SkillsForm skills={generator.form} />}
+                                {generator.type === 'posts' && <PostsForm posts={generator.form} />}
+                                {generator.type === 'social' && <SocialForm social={generator.form} />}
+                                {generator.type === 'addons' && <AddonsForm addons={generator.form} />}
+                                {generator.type === 'supports' && <Support />}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden sm:block" aria-hidden="true">
+                    <div class="py-5">
+                        <div class="border-t border-gray-200"></div>
+                    </div>
+                </div>
+            </>)
+        }
+        <button id="generate" data-dialog-target="generator-preview-dialog" class="flex select-none mx-auto items-center gap-3 rounded-lg bg-amber-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold text-white shadow-md shadow-amber-500/20 transition-all hover:shadow-lg hover:shadow-amber-500/50 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+            Generator Profile
+        </button>
+    </div>
+</github-profile-generator>
+
+<github-profile-preview id="preview" hidden={true}>
+    <div id="preview-mask" class="pointer-events-none fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-black bg-opacity-60 opacity-0 backdrop-blur-sm transition-opacity duration-300">
+
+        <div id="preview-wrapper" class="relative border border-stone-300 rounded-md mx-auto w-3/4 max-h-[75%] overflow-auto">
+            <div class="sticky top-0 flex justify-between px-2 border-b border-stone-300 bg-white">
+                <div class="inline-flex items-center px-2 py-3 gap-2 border-b-2 border-amber-500 text-sm font-bold text-slate-900">
+                    <svg class="w-4 h-4 text-slate-500" viewBox="0 0 16 16" fill="currentColor" style="display: inline-block; user-select: none; vertical-align: text-bottom; overflow: visible;"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></svg>
+                    <span>README</span>
+                </div>
+                <div class="preview-tools flex gap-4 items-center">
+                    <button id="copyCode" class="flex items-center gap-2 px-2 py-1 text-xs text-gray-500 duration-100 border rounded hover:text-amber-500 hover:border-amber-500" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="copyCodeIcon w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 0 0-9-9Z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="copyCodeSuccIcon hidden w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0 1 18 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3 1.5 1.5 3-3.75" />
+                        </svg>
+                        Copy Code
+                    </button>
+                    <button id="downloadFile" class="flex items-center gap-2 px-2 py-1 text-xs text-gray-500 duration-100 border rounded hover:text-amber-500 hover:border-amber-500" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m9 13.5 3 3m0 0 3-3m-3 3v-6m1.06-4.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+                        </svg>
+                        Download Markdown
+                    </button>
+                    <!-- <button id="previewCode" class="flex items-center gap-2 px-2 py-1 text-xs text-gray-500 duration-100 border rounded hover:text-amber-500 hover:border-amber-500" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        Preview Code
+                    </button> -->
+                </div>
+            </div>
+            <article class="markdown-body p-8" id="preview-content">
+                {/* README.md */}
+                <!-- <defaultTemplate /> -->
+            </article>
+        </div>
+
+    </div>
+</github-profile-preview>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css"></script> -->
+<script src="@/scripts/generator.ts"></script>

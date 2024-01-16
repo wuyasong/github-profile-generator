@@ -1,0 +1,15 @@
+---
+import { supportForm } from "@/constants/support"
+---
+
+<>
+    {
+        Object.values(supportForm).map((support: any) => {
+            return <div class="flex gap-6">
+                <img src={support.icon} class="h-6 sm:h-10" alt={support.name} />
+                <input placeholder={support.placeholder} id={support.id} class="generator-support-input peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
+            </div>
+        })
+        
+    }
+</>

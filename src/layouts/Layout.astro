@@ -1,0 +1,28 @@
+---
+import Navbar from '@/components/Navbar.astro'
+import { getLangFromUrl } from '@/i18n/utils'
+import "@/styles/global.css"
+
+interface Props {
+	title: string
+}
+
+const { title } = Astro.props
+const lang = getLangFromUrl(Astro.url)
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Awsome github profile generator" />
+		<meta name="keywords" content="github profile generator, github profile readme generator, profile creator, profile readme generator, github profile readme">
+		<meta name="viewport" content="width=device-width" />
+		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+		<title>{title}</title>
+	</head>
+	<body class="flex h-full flex-col">
+		<Navbar />
+		<slot />
+	</body>
+</html>

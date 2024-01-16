@@ -1,0 +1,75 @@
+---
+import { languages } from "@/i18n/ui"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
+const lang = getLangFromUrl(Astro.url)
+// const t = useTranslations(lang)
+---
+
+<div class="navbar-item relative">
+    <button id="languageBtn" class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802">
+        </path>
+        </svg>
+        <span class="ml-2">{languages[lang]}</span>
+    </button>
+
+    <!-- 多语言切换下拉列表 -->
+    <div id="languageMenu" class="navbar-menu absolute top-8 right-0 mt-2 w-56 origin-top-right divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 transform scale-0 focus:outline-none">
+        <ul class="px-1 py-1">
+        <li>
+            <a
+            class="flex w-full items-center rounded-md px-2 py-2 text-gray-900 text-sm hover:bg-black/30"
+            href="/">
+            English
+            </a>
+        </li>
+        <li>
+            <a
+            class="flex w-full items-center rounded-md px-2 py-2 text-gray-900 text-sm hover:bg-black/30"
+            href="/de">
+            Deutsch
+            </a>
+        </li>
+        <li>
+            <a
+            class="flex w-full items-center rounded-md px-2 py-2 text-gray-900 text-sm hover:bg-black/30"
+            href="/fr">
+            Français
+            </a>
+        </li>
+        <li>
+            <a
+            class="flex w-full items-center rounded-md px-2 py-2 text-gray-900 text-sm hover:bg-black/30"
+            href="/es">
+            Español
+            </a>
+        </li>
+        <li>
+            <a
+            class="flex w-full items-center rounded-md px-2 py-2 text-gray-900 text-sm hover:bg-black/30"
+            href="/pt">
+            Português
+            </a>
+        </li>
+        <li>
+            <a
+            class="flex w-full items-center rounded-md px-2 py-2 text-gray-900 text-sm hover:bg-black/30"
+            href="/it">
+            Italiano
+            </a>
+        </li>
+        <li>
+            <a
+            class="flex w-full items-center rounded-md px-2 py-2 text-gray-900 text-sm hover:bg-black/30"
+            href="/pl">
+            Polski
+            </a>
+        </li>
+        </ul>
+    </div>
+</div>
