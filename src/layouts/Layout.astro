@@ -24,5 +24,16 @@ const lang = getLangFromUrl(Astro.url)
 	<body class="flex h-full flex-col">
 		<Navbar />
 		<slot />
+		<div style="display: none;">
+			<!-- Google tag (gtag.js) -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=G-8CWJ1N5NH3"></script>
+			<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-8CWJ1N5NH3');
+			</script>
+		</div>
 	</body>
 </html>
