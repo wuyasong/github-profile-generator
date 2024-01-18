@@ -20,10 +20,35 @@ const lang = getLangFromUrl(Astro.url)
 		<meta name="viewport" content="width=device-width" />
 		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 		<title>{title}</title>
+        <script
+          data-name="BMC-Widget"
+          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+          data-id="wuyasong"
+          data-description="Support me on Buy me a coffee!"
+          data-message="Loved the tool🚀. Buy me a coffee to support the work!"
+          data-color="#FF813F"
+          data-position=""
+          data-x_margin="18"
+          data-y_margin="18"
+        ></script>
 	</head>
 	<body class="flex h-full flex-col dark:bg-neutral-800">
 		<Navbar />
 		<slot />
+        {/* BuyMeACoffee */}
+        <a
+          href="https://www.buymeacoffee.com/wuyasong"
+          class="fixed bottom-2 right-2 flex items-center justify-evenly bg-yellow-400 shadow-md shadow-slate-300 text-xs rounded-md text-black py-2 px-4 my-2"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            class="w-6 h-6 mr-2"
+            src="https://www.vectorlogo.zone/logos/buymeacoffee/buymeacoffee-icon.svg"
+            alt="Buy wuyasong A Coffee"
+          />
+          Buy me a coffee
+        </a>
 		<div style="display: none;">
 			<!-- Google tag (gtag.js) -->
 			<script async src="https://www.googletagmanager.com/gtag/js?id=G-8CWJ1N5NH3"></script>
