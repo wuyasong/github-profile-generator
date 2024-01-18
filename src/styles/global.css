@@ -51,3 +51,8 @@ html {
     --tw-backdrop-saturate: ;
     --tw-backdrop-sepia:
 }
+
+.active {
+    transform: scaleY(1);
+    opacity: 1;
+}
