@@ -15,7 +15,7 @@ export const socialForm = [
     },
     {
         name: 'linkedin',
-        link: 'https://www.linkedin.com/',
+        link: 'https://www.linkedin.com/in/',
         icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg',
         shields: 'https://img.shields.io/badge/linkedin-logo?style=for-the-badge&logo=linkedin&logoColor=white&color=%230a77b6',
         placeholder: 'linkedin username',
@@ -33,6 +33,20 @@ export const socialForm = [
         icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg',
         shields: 'https://img.shields.io/badge/instagram-logo?style=for-the-badge&logo=instagram&logoColor=white&color=%23F35369',
         placeholder: 'instagram username',
+    },
+    {
+        name: 'codepen',
+        link: 'https://www.codepen.io/',
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/codepen.svg',
+        shields: 'https://img.shields.io/badge/codepen?style=for-the-badge&logo=codepen&logoColor=white&color=black',
+        placeholder: 'codepen username',
+    },
+    {
+        name: 'codesandbox',
+        link: 'https://codesandbox.com/u/',
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/codesandbox.svg',
+        shields: 'https://img.shields.io/badge/codesandbox?style=for-the-badge&logo=codesandbox&logoColor=white&color=black',
+        placeholder: 'codesandbox username',
     },
     {
         name: 'dribbble',
@@ -59,6 +73,13 @@ export const socialForm = [
         link: 'https://www.youtube.com/',
         icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/youtube.svg',
         shields: 'https://img.shields.io/badge/youtube-logo?style=for-the-badge&logo=youtube&logoColor=white&color=%23cc0000',
-        placeholder: 'youtube channel name',
+        placeholder: 'youtube channel name (with @)',
     },
+    {
+        name: 'stackoverflow',
+        link: 'https://stackoverflow.com/users/',
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/stackoverflow.svg',
+        shields: 'https://img.shields.io/badge/stackoverflow-logo?style=for-the-badge&logo=stackoverflow&logoColor=white&color=%23cc0000',
+        placeholder: 'stackoverflow user ID',
+    }
 ]
