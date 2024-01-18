@@ -73,3 +73,20 @@ const lang = getLangFromUrl(Astro.url)
         </ul>
     </div>
 </div>
+
+<script>
+    const languageBtn = document.getElementById('languageBtn')
+    const languageMenu = document.getElementById('languageMenu')
+
+    languageBtn!.onclick = (event: any) => {
+        event.stopPropagation()
+        languageMenu?.classList.toggle('active')
+    }
+    
+    // 点击下拉菜单意外区域隐藏
+    window.onclick = function () {
+        if (languageMenu?.classList.contains('active')) {
+            languageMenu.classList.remove('active')
+        }
+    }
+</script>

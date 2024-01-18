@@ -51,21 +51,21 @@ const generators = [
 
 <!-- Generator Form -->
 <github-profile-generator id="generator-form">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-8 mt-20 bg-slate-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-8 mt-20 bg-slate-100 dark:bg-slate-700">
         {
             generators.map(generator => <>
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     {/* left Title */}
                     <div class="md:col-span-1">
                         <div class="px-4 sm:px-0 sticky top-0">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900">{generator.title}</h3>
-                            <p class="mt-1 text-sm text-gray-600">{generator.subTitle}</p>
+                            <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">{generator.title}</h3>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{generator.subTitle}</p>
                         </div>
                     </div>
                     {/* right Form */}
                     <div class="mt-5 md:col-span-2 md:mt-0 relative">
                         <div class="shadow sm:overflow-hidden sm:rounded-md">
-                            <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
+                            <div class="space-y-4 bg-white px-4 py-5 sm:p-6 dark:bg-slate-500">
                                 {generator.type === 'profile' && <ProfileForm profile={generator.form} />}
                                 {generator.type === 'skills' && <SkillsForm skills={generator.form} />}
                                 {generator.type === 'posts' && <PostsForm posts={generator.form} />}
@@ -78,7 +78,7 @@ const generators = [
                 </div>
                 <div class="hidden sm:block" aria-hidden="true">
                     <div class="py-5">
-                        <div class="border-t border-gray-200"></div>
+                        <div class="border-t border-gray-200 dark:border-gray-600"></div>
                     </div>
                 </div>
             </>)

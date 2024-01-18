@@ -2,17 +2,17 @@
 import { socialForm } from '@/constants/social'
 ---
 
-<div class="grid grid-cols-2 gap-8 bg-white">
+<div class="grid grid-cols-2 gap-8">
     {
         socialForm.map(social => <div class="mt-1 flex rounded-md shadow-sm">
-            <span class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-1 py-1.5 text-sm text-gray-500">
+            <span class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-1 py-1.5 text-sm text-gray-500 dark:border-slate-800 dark:bg-slate-600">
                 <img src={social.icon} class="w-5 h-5 sm:w-8" alt={social.name} />
             </span>
             <input type="text"
                 name={social.name}
                 id={social.name}
                 value=""
-                class="generator-social-input block w-full flex-1 px-3 rounded-none rounded-r-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                class="generator-social-input block w-full flex-1 px-3 rounded-none rounded-r-md border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder={social.placeholder}
             />
         </div>)
