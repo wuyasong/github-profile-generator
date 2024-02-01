@@ -1,0 +1,81 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import "@/styles/github-markdown.css"
+import DownloadIcon from '@/components/icons/DownloadIcon.astro'
+import EditIcon from '@/components/icons/EditIcon.astro'
+import PreviewIcon from '@/components/icons/PreviewIcon.astro'
+import CopyIcon from '@/components/icons/CopyIcon.astro'
+
+interface Frontmatter {
+    name: string;
+    cover: string;
+    md: string;
+}
+
+export async function getStaticPaths() {
+    const data: any = await Astro.glob<Frontmatter>(`../markdown/*.md`)
+
+    return data.map((item: any) => ({
+        params: { ...item.frontmatter },
+        props: item
+    }))
+}
+
+const {Content, frontmatter}: any = Astro.props;
+---
+
+<Layout title="GitHub Profile Template | Get Awsome GitHub profile readme templates" showTemplate={false}>
+    <section class="container max-w-screen-xl mx-auto md:px-8">
+        <h2 class="text-2xl font-semibold dark:text-white mb-8">Template details</h2>
+        <section class="flex justify-between items-center">
+            <div>
+                <div class="flex py-2 items-center">
+                    <div class="w-20 text-sm text-zinc-800 font-semibold">Name</div>
+                    <div class="text-sm text-zinc-700">{frontmatter.name}</div>
+                </div>
+                <div class="flex py-2 items-center">
+                    <div class="w-20 text-sm text-zinc-800 font-semibold">Preview</div>
+                    <a class="text-sm text-blue-600" href={frontmatter.cover} target="_blank">{frontmatter.cover}</a>
+                </div>
+            </div>
+            <div>
+                <img src="https://avatars.githubusercontent.com/in/15368?v=4&size=220" class="w-20 rounded-lg" alt="github">
+            </div>
+        </section>
+
+        <!-- Preview -->
+        <div id="preview-wrapper" class="relative border border-stone-300 rounded-md my-10">
+            <div class="sticky top-0 flex justify-between px-2 border-b border-stone-300">
+                <div class="inline-flex items-center px-2 py-3 gap-2 border-b-2 border-amber-500 text-sm font-bold text-slate-900">
+                    <svg class="w-4 h-4 text-slate-500" viewBox="0 0 16 16" fill="currentColor" style="display: inline-block; user-select: none; vertical-align: text-bottom; overflow: visible;"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></svg>
+                    <span>README</span>
+                </div>
+                <div class="preview-tools flex gap-4 items-center">
+                    <!-- copyCode -->
+                    <button id="copyCode" class="flex items-center gap-2 px-2 py-1 text-sm text-gray-500 duration-100 border rounded hover:text-amber-500 hover:border-amber-500" type="button">
+                        <CopyIcon clipped={false} />
+                        Copy Code
+                    </button>
+                    <!-- downloadFile -->
+                    <button id="downloadFile" class="flex items-center gap-2 px-2 py-1 text-sm text-gray-500 duration-100 border rounded hover:text-amber-500 hover:border-amber-500" type="button">
+                        <DownloadIcon />
+                        Download Markdown
+                    </button>
+                    <!-- previewCode -->
+                    <button id="editCode" class="flex items-center gap-2 px-2 py-1 text-sm text-gray-500 duration-100 border rounded hover:text-amber-500 hover:border-amber-500" type="button">
+                        <EditIcon />
+                        <PreviewIcon />
+                        <span id="editCodeText">Edit Code</span>
+                    </button>
+                </div>
+            </div>
+            <article class="markdown-body p-8" id="preview-content">
+                {/* README.md */}
+                <Content />
+            </article>
+            <textarea name="editor" id="editor" cols="30" rows="20" class="outline-none hidden container mx-auto px-6 py-6"></textarea>
+        </div>
+    </section>
+</Layout>
+
+<script src="@/scripts/template.ts"></script>

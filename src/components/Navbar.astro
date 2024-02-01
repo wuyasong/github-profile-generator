@@ -5,6 +5,8 @@ import DarkToggle from "@/components/DarkToggle.astro"
 import LocaleSwitch from "@/components/LocaleSwitch.astro"
 
 const lang = getLangFromUrl(Astro.url)
+
+const { showTemplate } = Astro.props
 // const t = useTranslations(lang)
 ---
 
@@ -24,6 +26,10 @@ const lang = getLangFromUrl(Astro.url)
       <div class="flex items-center gap-x-5 md:gap-x-8">
         <DarkToggle />
         <LocaleSwitch />
+        <!-- <a href="/template">Template</a> -->
+        {
+          showTemplate === false ? null : <a href="/templates" class="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] px-8 py-2 bg-[#0070f3] rounded-md text-xs text-white font-light transition duration-200 ease-linear">Template</a>
+        }
       </div>
     </nav>
   </div>

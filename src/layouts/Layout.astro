@@ -5,9 +5,10 @@ import "@/styles/global.css"
 
 interface Props {
 	title: string
+	showTemplate?: boolean
 }
 
-const { title } = Astro.props
+const { title, showTemplate } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 ---
 
@@ -33,7 +34,7 @@ const lang = getLangFromUrl(Astro.url)
         ></script>
 	</head>
 	<body class="flex h-full flex-col dark:bg-neutral-800">
-		<Navbar />
+		<Navbar showTemplate={showTemplate} />
 		<slot />
         {/* BuyMeACoffee */}
         <a

@@ -167,6 +167,7 @@
     background-color: transparent;
     color: var(--color-accent-fg);
     text-decoration: none;
+    display: inline-block;
 }
 
 .markdown-body abbr[title] {
@@ -219,6 +220,7 @@
 
 .markdown-body img {
     border-style: none;
+    display: inline-block;
     max-width: 100%;
     box-sizing: content-box;
     background-color: var(--color-canvas-default);

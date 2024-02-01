@@ -1,0 +1,106 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Pagination from "@/components/Pagination.astro";
+import type { GetStaticPathsOptions } from 'astro';
+
+interface Frontmatter {
+    name: string;
+    cover: string;
+    md: string;
+}
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const data: any = await Astro.glob<Frontmatter>(`../markdown/*.md`)
+
+    const templateData = data.map((item: any) => item.frontmatter)
+    return paginate(templateData, {
+        pageSize: 18
+    })
+}
+
+// 所有分页数据都在 "page" 参数中传递
+const { page } = Astro.props;
+---
+
+<Layout title="GitHub Profile Template | Get Awsome GitHub profile readme templates" showTemplate={false}>
+    <section class="py-16">
+        <div class="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">
+            <div class="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
+                <p class="text-sm text-indigo-600 font-medium">
+                Over 300+ templates
+                </p>
+                <h2 class="text-4xl text-gray-800 font-extrabold md:text-5xl">
+                    Awesome GitHub Profile README Template
+                </h2>
+                <p>
+                    A collection of GitHub profile README template, Explore more of beautiful free templates.
+                </p>
+                <div class="items-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
+                    <a href="#template" class="block py-2 px-4 text-center text-white font-medium bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none">
+                        Get Template
+                    </a>
+                    <!-- <a
+                        href="javascript:void(0)"
+                        class="flex items-center justify-center gap-x-2 py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex"
+                        >
+                        Get access
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="w-5 h-5"
+                        >
+                        <path
+                            fill-rule="evenodd"
+                            d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
+                            clip-rule="evenodd"
+                        ></path>
+                        </svg>
+                    </a> -->
+                </div>
+            </div>
+            <div class="flex-none mt-14 md:mt-0 md:max-w-xl">
+                <img
+                    src="/0_H6Ca0bQYIJIs2mNo.webp"
+                    class="md:rounded-tl-[108px]"
+                    alt=""
+                />
+            </div>
+        </div>
+        <div class="max-w-screen-xl mx-auto md:px-8 mt-24">
+            <!-- <h3 class="text-gray-800 text-3xl font-semibold sm:text-3xl">
+                Template
+            </h3> -->
+            <p class="text-base text-gray-400">
+                {page.total} templates
+            </p>
+        </div>
+        <ul id="template" class="max-w-screen-xl mx-auto md:px-8 grid gap-x-8 gap-y-10 pt-8 sm:grid-cols-2 lg:grid-cols-3">
+            {
+                page.data.map((item: any, key) => (
+                    <li class="w-full mx-auto group sm:max-w-sm">
+                        <a href={`/templates/${item.name}`}>
+                            <img src={item.cover} loading="lazy" alt={item.name} class="w-full border rounded-lg h-60 object-cover" />
+                            <div class="mt-3 space-y-2">
+                                <h3 class="text-sm text-gray-800 duration-150 group-hover:text-indigo-600 font-semibold">
+                                    {item.name}
+                                </h3>
+                            </div>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+            
+    <!-- <div>页码：{page.currentPage}</div> -->
+    <Pagination
+      length={page.lastPage}
+      currentUrl={page.url.current}
+      currentPage={page.currentPage}
+      firstUrl={`/templates/`}
+      prevUrl={page.url.prev}
+      nextUrl={page.url.next}
+      lastUrl={`/templates/${page.lastPage}`}
+    />
+</Layout>

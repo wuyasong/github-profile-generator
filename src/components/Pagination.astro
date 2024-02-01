@@ -1,0 +1,53 @@
+---
+import NextIcon from '@/components/icons/NextIcon.astro';
+import PrevIcon from '@/components/icons/PrevIcon.astro';
+
+const { lang, length, currentPage, firstUrl, prevUrl, nextUrl } = Astro.props;
+const paginationList = Array.from({ length }, (_, i) => i + 1);
+---
+
+
+<nav class="mt-12">
+    <ol class="flex justify-center gap-3 text-xs font-medium">
+      {
+        prevUrl ? (
+          <li>
+            <a
+              href={prevUrl}
+              class="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100  text-zinc-900 rtl:rotate-180 dark:text-white"
+            >
+              <span class="sr-only">Prev Page</span>
+              <PrevIcon />
+            </a>
+          </li>
+        ) : null
+      }
+      {
+        paginationList?.map((num) => (
+          <li>
+            <a
+              href={`${firstUrl}${num == 1 ? '' : '' + num}`}
+              class={`block h-8 w-8 rounded border text-center leading-8 text-zinc-900 dark:text-white ${
+                currentPage == num ? 'border-indigo-600 bg-indigo-500 !text-white' : ''
+              }`}
+            >
+              {num}
+            </a>
+          </li>
+        ))
+      }
+      {
+        nextUrl ? (
+          <li>
+            <a
+              href={nextUrl}
+              class="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 text-zinc-900 rtl:rotate-180 dark:text-white"
+            >
+              <span class="sr-only">Next Page</span>
+              <NextIcon />
+            </a>
+          </li>
+        ) : null
+      }
+    </ol>
+</nav>
