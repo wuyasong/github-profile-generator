@@ -1,6 +1,6 @@
 ---
 import Navbar from '@/components/Navbar.astro'
-import { getLangFromUrl } from '@/i18n/utils'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import "@/styles/global.css"
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
 
 const { title, showTemplate } = Astro.props
 const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <!doctype html>
@@ -44,8 +45,8 @@ const lang = getLangFromUrl(Astro.url)
 		<!-- <div class="group relative top-0 bg-indigo-600 py-3 text-white transition-all duration-300 md:py-0"><div class="container flex flex-col items-center justify-center gap-4 md:h-12 md:flex-row"><a target="_blank" class="inline-flex text-xs leading-normal md:text-sm" href="https://magi-1.video">✨<span class="ml-1 font-[580] dark:font-[550]">Magi-1 is now arrived. Learn more AI Video Generator.</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-1 mt-[3px] hidden size-4 transition-all duration-300 ease-out group-hover:translate-x-1 lg:inline-block"><path d="m9 18 6-6-6-6"></path></svg></a></div></div> -->
 
 		<!-- <div class="group relative top-0 bg-indigo-600 py-3 text-white transition-all duration-300 md:py-0"><div class="container flex flex-col items-center justify-center gap-4 md:h-12 md:flex-row"><a target="_blank" class="inline-flex text-xs leading-normal md:text-sm" href="https://grok4-ai.com/">✨<span class="ml-1 font-[580] dark:font-[550]">Grok4 is now arrived. Learn more Grok4.</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-1 mt-[3px] hidden size-4 transition-all duration-300 ease-out group-hover:translate-x-1 lg:inline-block"><path d="m9 18 6-6-6-6"></path></svg></a></div></div> -->
-
-		<div class="group relative top-0 bg-indigo-600 py-3 text-white transition-all duration-300 md:py-0"><div class="container flex flex-col items-center justify-center gap-4 md:h-12 md:flex-row"><a target="_blank" class="inline-flex text-xs leading-normal md:text-sm" href="https://latextoimage.com/">✨<span class="ml-1 font-[580] dark:font-[550]">LaTeXToImage is now arrived. Learn more LaTeXToImage.</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-1 mt-[3px] hidden size-4 transition-all duration-300 ease-out group-hover:translate-x-1 lg:inline-block"><path d="m9 18 6-6-6-6"></path></svg></a></div></div>
+		<!-- <div class="group relative top-0 bg-indigo-600 py-3 text-white transition-all duration-300 md:py-0"><div class="container flex flex-col items-center justify-center gap-4 md:h-12 md:flex-row"><a target="_blank" class="inline-flex text-xs leading-normal md:text-sm" href="https://latextoimage.com/">✨<span class="ml-1 font-[580] dark:font-[550]">LaTeXToImage is now arrived. Learn more LaTeXToImage.</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-1 mt-[3px] hidden size-4 transition-all duration-300 ease-out group-hover:translate-x-1 lg:inline-block"><path d="m9 18 6-6-6-6"></path></svg></a></div></div> -->
+		<div class="group relative top-0 bg-indigo-600 py-3 text-white transition-all duration-300 md:py-0"><div class="container flex flex-col items-center justify-center gap-4 md:h-12 md:flex-row"><a target="_blank" class="inline-flex text-xs leading-normal md:text-sm" href="https://minecraftcirclegenerator.io/">✨<span class="ml-1 font-[580] dark:font-[550]">MinecraftCircleGenerator is now arrived. Learn more MinecraftCircleGenerator.</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-1 mt-[3px] hidden size-4 transition-all duration-300 ease-out group-hover:translate-x-1 lg:inline-block"><path d="m9 18 6-6-6-6"></path></svg></a></div></div>
 
 		<Navbar showTemplate={showTemplate} />
 		
@@ -68,21 +69,63 @@ const lang = getLangFromUrl(Astro.url)
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5867915342436534"
      crossorigin="anonymous"></script>
 
-		<!-- link -->
-		<div class="opacity-0">
-			<!-- <a href="https://vision-pro.im" title="apple vision pro blog">apple vision pro blog</a> -->
-			<!-- <a href="https://www.qiuyumi.com/whois/?domain=githubprofile.com" title="github profile readme generator">githubprofilereadmegenerator</a> -->
-			<!-- <a href="https://link.zhihu.com/?target=https://githubprofile.com">github profile readme generator</a> -->
-			<!-- <a href="https://imagetoprompt.club" title="image to prompt">Image To Prompt</a> -->
-			<!-- <a href="https://liveportraitai.com/" title="LivePortrait AI">LivePortrait AI</a> -->
-			<!-- <a href="https://fluximage.org/" title="FLux Image AI">FLux Image AI</a> -->
-			<!-- <a href="https://nemotron.one/" title="Nemotron AI Chat">Nemotron AI Chat</a> -->
-			<!-- <a href="https://minecraftai.app" title="Minecraft AI">Minecraft AIt</a> -->
-			<!-- <a href="https://wan21.net" title="Wan 2.1 AI">Wan 2.1 AI</a> -->
-			<a href="https://magi-1.video" title="Magi-1 Video">Magi-1 Video</a>
-			<!-- <a href="https://grok4-ai.com/" title="Grok 4">Grok 4</a> -->
-			<a href="https://latextoimage.com/" title="LaTeXToImage">LaTeXToImage</a>
-		</div>
+		<footer class="mt-8 border-t border-slate-200 dark:border-slate-700 py-8">
+			<div class="container mx-auto px-4">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+					<!-- About -->
+					<div>
+						<h3 class="text-lg font-semibold mb-4 text-slate-800 dark:text-white">{t('footer.about')}</h3>
+						<p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+							{t('footer.about.description')}
+						</p>
+						<div class="flex space-x-4">
+							<a href="https://github.com/wuyasong" target="_blank" class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+								<svg aria-hidden="true" class="h-6 w-6 fill-current"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"></path></svg>
+							</a>
+							<a href="https://x.com/candytools118" target="_blank" class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+								<svg aria-hidden="true" class="h-6 w-6 fill-current"><path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0 0 20 3.92a8.19 8.19 0 0 1-2.357.646 4.118 4.118 0 0 0 1.804-2.27 8.224 8.224 0 0 1-2.605.996 4.107 4.107 0 0 0-6.993 3.743 11.65 11.65 0 0 1-8.457-4.287 4.106 4.106 0 0 0 1.27 5.477A4.073 4.073 0 0 1 .8 7.713v.052a4.105 4.105 0 0 0 3.292 4.022 4.095 4.095 0 0 1-1.853.07 4.108 4.108 0 0 0 3.834 2.85A8.233 8.233 0 0 1 0 16.407a11.615 11.615 0 0 0 6.29 1.84"></path></svg>
+							</a>
+						</div>
+					</div>
+					
+					<!-- Products -->
+					<div>
+						<h3 class="text-lg font-semibold mb-4 text-slate-800 dark:text-white">{t('footer.products')}</h3>
+						<ul class="space-y-2">
+							<li><a href="https://editimg.ai" title="EditImg" class="text-sm text-slate-600 hover:text-indigo-600 hover:underline dark:text-slate-300">EditImg</a></li>
+							<li><a href="https://magi-1.video" title="Magi-1 Video" class="text-sm text-slate-600 hover:text-indigo-600 hover:underline dark:text-slate-300">Magi-1 Video</a></li>
+							<li><a href="https://latextoimage.com/" title="LaTeXToImage" class="text-sm text-slate-600 hover:text-indigo-600 hover:underline dark:text-slate-300">LaTeXToImage</a></li>
+							<li><a href="https://minecraftcirclegenerator.io/" title="Minecraft Circle Generator" class="text-sm text-slate-600 hover:text-indigo-600 hover:underline dark:text-slate-300">Minecraft Circle Generator</a></li>
+						</ul>
+					</div>
+					
+					<!-- Resources -->
+					<div>
+						<h3 class="text-lg font-semibold mb-4 text-slate-800 dark:text-white">{t('footer.resources')}</h3>
+						<ul class="space-y-2">
+							<li><a href="https://github.com/topics/github-profile" class="text-sm text-slate-600 hover:text-indigo-600 hover:underline dark:text-slate-300">{t('footer.resources.githubTopics')}</a></li>
+							<li><a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme" class="text-sm text-slate-600 hover:text-indigo-600 hover:underline dark:text-slate-300">{t('footer.resources.githubDocs')}</a></li>
+						</ul>
+					</div>
+					
+					<!-- Support -->
+					<div>
+						<h3 class="text-lg font-semibold mb-4 text-slate-800 dark:text-white">{t('footer.support')}</h3>
+						<a href="https://www.buymeacoffee.com/wuyasong" target="_blank">
+							<img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" class="h-10" />
+						</a>
+						<a href="https://www.producthunt.com/posts/github-profile-readme-generator-3" target="_blank" class="block mt-4">
+							<img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=437744&theme=light" alt="GitHub Profile README Generator - Featured on Product Hunt" class="h-10" />
+						</a>
+					</div>
+				</div>
+				
+				<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 text-center">
+					<p class="text-sm text-slate-500 dark:text-slate-400">{t('footer.copyright')} {new Date().getFullYear()} githubprofile.com. {t('footer.allRightsReserved')}</p>
+				</div>
+			</div>
+		</footer>
+		
 		<div style="display: none;">
 			<script async src="https://www.googletagmanager.com/gtag/js?id=G-8CWJ1N5NH3"></script>
 			<script>

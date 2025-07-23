@@ -1,7 +1,7 @@
 export const socialForm = [
     {
         name: 'twitter',
-        link: 'https://twitter.com/',
+        link: 'https://x.com/',
         icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg',
         shields: 'https://img.shields.io/badge/twitter-x?style=for-the-badge&logo=x&logoColor=white&color=%230f1419',
         placeholder: 'twitter username',
