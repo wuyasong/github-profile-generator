@@ -1,0 +1,28 @@
+---
+import externalLinks from '@/config/external-links.json'
+
+const products = externalLinks.products.flatMap((id) => {
+	const site = externalLinks.sites[id as keyof typeof externalLinks.sites]
+	if (!site) {
+		console.warn(`[external-links] Skipping missing footer site: ${id}`)
+		return []
+	}
+
+	return [{ id, site }]
+})
+---
+
+<ul class="space-y-2">
+	{products.map(({ id, site }) => (
+		<li>
+			<a
+				href={site.url}
+				title={site.name}
+				data-external-site={id}
+				class="text-sm text-slate-600 hover:text-indigo-600 hover:underline dark:text-slate-300"
+			>
+				{site.name}
+			</a>
+		</li>
+	))}
+</ul>

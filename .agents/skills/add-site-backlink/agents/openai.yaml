@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add Site Backlink"
+  short_description: "Manage this project's banner and footer backlinks"
+  default_prompt: "Use $add-site-backlink to add a site to the banner and footer."
