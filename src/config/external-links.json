@@ -14,12 +14,18 @@
       "name": "Burning Bridges AI",
       "url": "https://burningbridgesai.online",
       "promotionText": "Burning Bridges AI Video Generator | One Photo Preview"
+    },
+    "krillion-solver": {
+      "name": "Krillion Solver",
+      "url": "https://krillionsolver.com",
+      "promotionText": "Krillion Answers Today"
     }
   },
-  "promotion": "burning-bridges-ai",
+  "promotion": "krillion-solver",
   "products": [
     "mixinflow",
     "bulin-47-ai",
-    "burning-bridges-ai"
+    "burning-bridges-ai",
+    "krillion-solver"
   ]
 }
