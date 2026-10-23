@@ -19,13 +19,19 @@
       "name": "Krillion Solver",
       "url": "https://krillionsolver.com",
       "promotionText": "Krillion Answers Today"
+    },
+    "restaurants-email-marketing": {
+      "name": "Restaurants Email Marketing",
+      "url": "https://restaurantsemailmarketing.com",
+      "promotionText": "Create restaurant marketing emails with an AI generator, practical templates, subject line ideas, and clear operator guides."
     }
   },
-  "promotion": "krillion-solver",
+  "promotion": "restaurants-email-marketing",
   "products": [
     "mixinflow",
     "bulin-47-ai",
     "burning-bridges-ai",
-    "krillion-solver"
+    "krillion-solver",
+    "restaurants-email-marketing"
   ]
 }
