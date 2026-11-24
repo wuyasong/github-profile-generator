@@ -24,14 +24,20 @@
       "name": "Restaurants Email Marketing",
       "url": "https://restaurantsemailmarketing.com",
       "promotionText": "Create restaurant marketing emails with an AI generator, practical templates, subject line ideas, and clear operator guides."
+    },
+    "ailaunchradar": {
+      "name": "AILaunchRadar",
+      "url": "https://ailaunchradar.com",
+      "promotionText": "AILaunchRadar is a comprehensive directory for discovering, browsing, and comparing AI tools across writing, coding, images, video, and more."
     }
   },
-  "promotion": "restaurants-email-marketing",
+  "promotion": "ailaunchradar",
   "products": [
     "mixinflow",
     "bulin-47-ai",
     "burning-bridges-ai",
     "krillion-solver",
-    "restaurants-email-marketing"
+    "restaurants-email-marketing",
+    "ailaunchradar"
   ]
 }
